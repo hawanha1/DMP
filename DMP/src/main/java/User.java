@@ -27,21 +27,23 @@ public class User extends HttpServlet
         String tel = request.getParameter("tel");
         String name = request.getParameter("name");
         String password = request.getParameter("password");
-        String output="{\"status\":";
         try {
             Connection connection=DriverManager.getConnection("jdbc:mysql://localhost:3306/dmp","root","");
-            String query = "insert into user(phone,email,name,password) values (\""+tel+"\",\""+email+"\",\""+name+"\",\""+password+"\")";
-            PreparedStatement statement1 = connection.prepareStatement(query);
-            int result = statement1.executeUpdate();
-            if(result>0) {
-                output+="true";
-                return output;
+            String query = "select * from user where email = \""+email+"\"";
+            PreparedStatement statement = connection.prepareStatement(query);
+            ResultSet resultSet = statement.executeQuery();
+            if(resultSet.next()){
+                return "{\"status\":false,\"result\":\"email already exist\"}";
+            }else{
+                String query1 = "insert into user(phone,email,name,password) values (\""+tel+"\",\""+email+"\",\""+name+"\",\""+password+"\")";
+                PreparedStatement statement1 = connection.prepareStatement(query1);
+                statement1.executeUpdate();
+                return "{"+"\"status\":true}";
             }
         }catch (SQLException e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
         }
-        output+="false";
-        return output;
+        return "{"+"\"status\":false}";
     }
 }

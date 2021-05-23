@@ -47,7 +47,7 @@
                 if you already have an account <a href="login.jsp">login?</a>
             </p>
             <div class="mb-3 form-check text-center">
-                <button type="submit" class="text-center btn btn-success" onclick="addUser()">SignUp</button><span id="errorSpan" style="color:red"></span>
+                <button type="submit" class="text-center btn btn-success" onclick="addUser()">SignUp</button>
             </div>
 
         </div>
@@ -69,13 +69,11 @@
             },
             dataType:'json',
             success:(data)=>{
-                if(data.status=="false"){
-                    document.getElementById("errorspan").innerText="You Entered Name is already exist change your name";
-                }else{
-                    alert("enter succesfully");
+                if(data.status){
+                    location.href='login.jsp';
+                   }else{
+                    alert(data.result);
                 }
-                console.log(data);
-                location.href='login.jsp';
             },
             failure:(error)=>{
                 console.log("error");
@@ -83,5 +81,10 @@
         });
     }
 </script>
+<footer class="footer font-small" style="background-color: #007E33">
+    <div class="footer-copyright text-center py-3">&copy 2020 Copyright:
+        <a href="home.jsp"> Deliver my parsel</a>
+    </div>
+</footer>
 </body>
 </html>

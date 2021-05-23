@@ -58,6 +58,10 @@
 		</table>
 	</div>
 </div>
-	
+    <footer class="footer font-small" style="background-color: #007E33">
+        <div class="footer-copyright text-center py-3">&copy 2020 Copyright:
+            <a href="home.jsp"> Deliver my parsel</a>
+        </div>
+    </footer>
 </body>
 </html>

@@ -126,5 +126,11 @@ google.maps.event.addDomListener(window, 'load', getPos);
 			<div id="map-canvas" style="width:100%;height:300px;margin-bottom:5%"></div>
 		</div>
 	</div>
+	<footer class="footer font-small" style="background-color: #007E33">
+		<div class="footer-copyright text-center py-3">&copy 2020 Copyright:
+			<a href="home.jsp"> Deliver my parsel</a>
+		</div>
+	</footer>
+
 </body>
 </html>
