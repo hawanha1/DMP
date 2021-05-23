@@ -15,10 +15,10 @@
 <body>
 <div class="container">
     <div class="row">
-       <!-- <div class="col-12">
-            <img src="image/PDS.JPG" class="img-thumbnail" alt="PDS"
+       <div class="col-12">
+            <img src="raw/PDS.JPG" class="img-thumbnail" alt="PDS"
                  width="100%">
-        </div>-->
+        </div>
     </div>
     <div class="row" style="margin-top: 5%">
         <div class="col-3"></div>

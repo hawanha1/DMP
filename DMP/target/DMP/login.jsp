@@ -9,7 +9,7 @@
 <div class="container">
     <div class="row">
         <div class="col-12">
-            <img src="image/PDS.JPG" class="img-thumbnail" alt="PDS" width="100%">
+            <img src="raw/PDS.JPG" class="img-thumbnail" alt="PDS" width="100%">
         </div>
     </div>
     <div class="row" style="margin-top:5%">
@@ -18,25 +18,46 @@
             <div class="col-12" style="text-align:center">
                 <h2 style="font-family:calibri">Sign In</h2>
             </div>
-            <form action="admin.jsp">
-                <div class="mb-3">
-                    <input type="email" class="form-control" id="exampleInputEmailLogin" placeholder="email" required>
-                </div>
-                <div class="mb-3">
-                    <input type="password" class="form-control" id="exampleInputPasswordLogin" placeholder="password" required>
-                </div>
-                <select class="form-select" aria-label="Default select example">
-                    <option value="Admin">Admin</option>
-                    <option value="DeliverBoy">Deliver Boy</option>
-                    <option value="Customer">Customer</option>
-                </select>
-                <div class="mb-3 form-check text-center">
-                    <button type="submit" class="text-center btn btn-success" style="margin-top:5%">LogIn</button>
-                </div>
-            </form>
+
+            <div class="mb-3">
+                <input type="email" class="form-control" id="exampleInputEmailLogin" placeholder="email" required>
+            </div>
+            <div class="mb-3">
+                <input type="password" class="form-control" id="exampleInputPasswordLogin" placeholder="password" required>
+            </div>
+            <select class="form-select" aria-label="Default select example" id="usertype">
+                <option value="Admin">Admin</option>
+                <option value="DeliveryBoy">Delivery Boy</option>
+                <option value="Customer">Customer</option>
+            </select>
+            <div class="mb-3 form-check text-center">
+                <button type="submit" class="text-center btn btn-success" style="margin-top:5%" onclick="selectUSerType()">LogIn</button>
+            </div>
+
         </div>
         <div class="col-3"></div>
     </div>
 </div>
+<script>
+
+    const selectUSerType=()=>{
+        var userType=document.querySelector("#usertype")
+        userType = userType.value
+
+        if(userType==="Admin"){
+            window.location.href = "admin.jsp";
+        }
+        else if(userType==="DeliveryBoy"){
+            window.location.href="deliveryboy.jsp"
+        }
+        else
+        {
+            window.location.href="home.jsp"
+        }
+
+    }
+
+
+</script>
 </body>
 </html>
