@@ -3,7 +3,11 @@
 <html>
 <head>
 <title>Add delivery Boy</title>
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+	<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+
 </head>
 <body>
 	<div class="container">
@@ -18,20 +22,18 @@
 				<div class="col-12" style="text-align:center">
 					<h2 style="font-family:calibri">Add Delivery Boy</h2>
 				</div>
-				<form action="deliveryboy.jsp">
 					<div class="mb-3">
-    					<input type="text" class="form-control" id="exampleInputProductFirst" placeholder="first" required>
+    					<input type="text" class="form-control" id="inputDeliveryBoyEmail" placeholder="email" required>
   					</div>
   					<div class="mb-3">
-    					<input type="text" class="form-control" id="exampleInputProductLast" placeholder="last" required>
+    					<input type="text" class="form-control" id="inputDeliveryBoyName" placeholder="name" required>
   					</div>
   					<div class="mb-3">
-    					<input type="text" class="form-control" id="exampleInputProductHandle" placeholder="Handle" required>
+    					<input type="password" class="form-control" id="inputDeliveryBoyPassword" placeholder="Password" required>
   					</div>
 					<div class="mb-3 form-check text-center">
-  						<button type="submit" class="text-center btn btn-success" style="margin-top:5%">Add</button>
+  						<button type="submit" class="text-center btn btn-success" style="margin-top:5%" onclick="addDeliveryBoy()">Add</button>
   					</div>
-				</form>
 			</div>
 			<div class="col-3"></div>
 		</div>
@@ -41,5 +43,32 @@
 			<a href="home.jsp"> Deliver my parsel</a>
 		</div>
 	</footer>
+	<script>
+		function addDeliveryBoy(){
+			$.ajax({
+				url:'./deliveryBoy',
+				type:'POST',
+				data:{
+					action:'addDeliveryBoy',
+					email:document.getElementById("inputDeliveryBoyEmail").value,
+					password:document.getElementById("inputDeliveryBoyPassword").value,
+					name:document.getElementById("inputDeliveryBoyName").value
+				},
+				dataType:'json',
+				success:(data)=>{
+					if(data.status){
+						window.location.href='deliveryboy.jsp';
+					}else{
+						alert("email already exist");
+					}
+				},
+				failure:(error)=>{
+					console.log(error);
+				}
+			});
+		}
+	</script>
+
+
 </body>
 </html>

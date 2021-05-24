@@ -6,7 +6,9 @@
 <meta charset="ISO-8859-1">
 <title>Admin</title>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 
+	<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 </head>
 <body>
 	<div class="container">
@@ -56,6 +58,11 @@
 			</div>
 		</div>
 	</div>
+
+
+	</script>
+
+
 	<footer class="footer font-small" style="background-color: #007E33">
 		<div class="footer-copyright text-center py-3">&copy 2020 Copyright:
 			<a href="home.jsp"> Deliver my parsel</a>

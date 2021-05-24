@@ -10,7 +10,7 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
-  
+
   <script
     src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
 <script>
@@ -21,12 +21,12 @@ function getPos(){
 	var x = document.getElementById("demo");
 	 if (navigator.geolocation) {
 		    navigator.geolocation.getCurrentPosition(showPosition);
-		  } else { 
+		  } else {
 		    x.innerHTML = "Geolocation is not supported by this browser.";
 		  }
-	
+
 	 function showPosition(position) {
-		 lat= position.coords.latitude 
+		 lat= position.coords.latitude
 		 lag= position.coords.longitude;
 		 console.log(lat,lag)
 		 initialize();
@@ -35,19 +35,19 @@ function getPos(){
 
 
 function initialize() {
-	 
+
   var mapOptions = {
     zoom: 14,
     center: new google.maps.LatLng(lat,lag)
   };
   map = new google.maps.Map(document.getElementById('map-canvas'),
       mapOptions);
- 
+
   new google.maps.Marker({
 	    position: { lat: lat, lng: lag },
 	    map,
 	  });
-  
+
 }
 
 
@@ -61,7 +61,7 @@ google.maps.event.addDomListener(window, 'load', getPos);
       			<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
         			<span class="icon-bar"></span>
         			<span class="icon-bar"></span>
-        			<span class="icon-bar"></span>                        
+        			<span class="icon-bar"></span>
       			</button>
       			<a class="navbar-brand" href="home.jsp">WebSiteName</a>
     		</div>

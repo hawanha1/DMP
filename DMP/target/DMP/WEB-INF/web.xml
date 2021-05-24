@@ -12,4 +12,28 @@
     <servlet-name>userServlet</servlet-name>
     <url-pattern>/addUser</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <servlet-name>userLogin</servlet-name>
+    <servlet-class>Login</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>userLogin</servlet-name>
+    <url-pattern>/loginUser</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>deliveryBoyClass</servlet-name>
+    <servlet-class>DeliveryBoy</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>deliveryBoyClass</servlet-name>
+    <url-pattern>/deliveryBoy</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>productClass</servlet-name>
+    <servlet-class>Product</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>productClass</servlet-name>
+    <url-pattern>/products</url-pattern>
+  </servlet-mapping>
 </web-app>
