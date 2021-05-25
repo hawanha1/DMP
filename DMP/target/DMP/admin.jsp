@@ -10,7 +10,7 @@
 
 	<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 </head>
-<body>
+<body onload="checkLogin()">
 	<div class="container">
 		<div class="row">
 			<div class="col-12">
@@ -60,6 +60,24 @@
 	</div>
 
 
+	<script>
+		function checkLogin(){
+			$.ajax({
+				url:'./loginUser',
+				type:'POST',
+				data:{action:"checkLogin"},
+				dataType: 'json',
+				success:(data)=>{
+					if(data.status){
+					}else{
+						window.location.href='login.jsp';
+					}
+				},
+				failure:(error)=>{
+					console.log(error);
+				}
+			});
+		}
 	</script>
 
 

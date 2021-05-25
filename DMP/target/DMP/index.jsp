@@ -7,7 +7,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
 
 </head>
-<body>
+<body onload="deleteLogin()">
 <div class="container">
     <div class="row">
        <div class="col-12">
@@ -50,6 +50,19 @@
 </div>
 
 <script type="text/javascript">
+    function deleteLogin(){
+        $.ajax({
+            url:'./loginUser',
+            type:'POST',
+            data:{action:"deleteLogin"},
+            dataType: 'json',
+            success:(data)=>{
+            },
+            failure:(error)=>{
+                console.log(error);
+            }
+        });
+    }
     function addUser(){
         $.ajax({
             url:'./addUser',

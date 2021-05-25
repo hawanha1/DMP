@@ -22,8 +22,49 @@ import java.sql.*;
             }
             else if(action.equals("deliveryBoyLogin")){
                 response.getWriter().println(deliveryBoyLogin(request));
+            }else if(action.equals("checkLogin")){
+                try {
+                    response.getWriter().println(checkLogin());
+                } catch (SQLException throwables) {
+                    throwables.printStackTrace();
+                }
+            }else if(action.equals("deleteLogin")){
+                try {
+                    response.getWriter().println(deleteLogin());
+                } catch (SQLException throwables) {
+                    throwables.printStackTrace();
+                }
             }
         }
+
+        public String deleteLogin() throws SQLException {
+            Connection connection= DriverManager.getConnection("jdbc:mysql://localhost:3306/dmp","root","");
+            String query="delete from login";
+            PreparedStatement statement = connection.prepareStatement(query);
+            statement.executeUpdate();
+            return "{\"status\":true}";
+        }
+
+        public String checkLogin() throws SQLException {
+            Connection connection= null;
+            try {
+                connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/dmp","root","");
+            } catch (SQLException throwables) {
+                throwables.printStackTrace();
+            }
+            String query="select * from login";
+            PreparedStatement statement=connection.prepareStatement(query);
+            ResultSet resultSet = statement.executeQuery();
+            if(resultSet.next()){
+                return "{\"status\":true}";
+            }
+            else{
+                return "{\"status\":false}";
+            }
+        }
+
+
+
         public String adminLogin(HttpServletRequest request) throws IOException{
             String email = request.getParameter("adminEmail");
             String password = request.getParameter("adminPassword");

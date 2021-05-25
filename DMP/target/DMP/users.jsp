@@ -12,7 +12,7 @@
 
 
 </head>
-<body onload="userDisplay()">
+<body onload="start()">
 	<div class="container">
 		<div class="row">
 			<div class="col-12">
@@ -52,6 +52,28 @@
 
 <script>
 
+	function start(){
+		userDisplay();
+		checkLogin();
+	}
+
+	function checkLogin(){
+		$.ajax({
+			url:'./loginUser',
+			type:'POST',
+			data:{action:"checkLogin"},
+			dataType: 'json',
+			success:(data)=>{
+				if(data.status){
+				}else{
+					window.location.href='login.jsp';
+				}
+			},
+			failure:(error)=>{
+				console.log(error);
+			}
+		});
+	}
 
 	function userDisplay(){
 			$.ajax({

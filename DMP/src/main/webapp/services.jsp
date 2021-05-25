@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Home</title>
+<title>Services</title>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
@@ -54,7 +54,7 @@ function initialize() {
 google.maps.event.addDomListener(window, 'load', getPos);
 </script>
 </head>
-<body>
+<body onload="start()">
 	<nav class="navbar navbar-inverse">
   		<div class="container-fluid">
     		<div class="navbar-header">
@@ -75,8 +75,8 @@ google.maps.event.addDomListener(window, 'load', getPos);
       			</ul>
       			<ul class="nav navbar-nav navbar-right">
         			<li><a href="index.jsp" type="button"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-        			<li><a href="login.jsp" type="button"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
-      			</ul>
+					<li><a href="login.jsp"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+				</ul>
     		</div>
   		</div>
 	</nav>
@@ -90,37 +90,8 @@ google.maps.event.addDomListener(window, 'load', getPos);
 		<div class="row text-right" style="margin:5%">
 			<a class="btn btn-success" style="border-radius:50%;" href="cart.jsp"><i class="fa fa-shopping-cart" style="font-size:24px"></i></a>
 		</div>
-		<div class="row" style="margin-bottom:5%">
-			<div class="col-4">
-				<div class="card" style="width: 18rem;">
-  					<img src="..." class="card-img-top" alt="...">
-  					<div class="card-body">
-    					<h5 class="card-title">Card title</h5>
-    					<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-    					<a href="#" class="btn btn-primary">Go somewhere</a>
-  					</div>
-				</div>
-			</div>
-			<div class="col-4">
-				<div class="card" style="width: 18rem;">
-  					<img src="..." class="card-img-top" alt="...">
-  					<div class="card-body">
-    					<h5 class="card-title">Card title</h5>
-    					<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-    					<a href="#" class="btn btn-primary">Go somewhere</a>
-  					</div>
-				</div>
-			</div>
-			<div class="col-4">
-				<div class="card" style="width: 18rem;">
-  					<img src="..." class="card-img-top" alt="...">
-  					<div class="card-body">
-    					<h5 class="card-title">Card title</h5>
-    					<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-    					<a href="#" class="btn btn-primary">Go somewhere</a>
-  					</div>
-				</div>
-			</div>
+		<div class="row" id="cardRow" style="margin-bottom:5%">
+
 		</div>
 		<div class="row">
 			<div id="map-canvas" style="width:100%;height:300px;margin-bottom:5%"></div>
@@ -131,6 +102,59 @@ google.maps.event.addDomListener(window, 'load', getPos);
 			<a href="home.jsp"> Deliver my parsel</a>
 		</div>
 	</footer>
+<script>
+	function start() {
+		checkLogin();
+		displayProducts();
+	}
+	function checkLogin() {
+		$.ajax({
+			url: './loginUser',
+			type: 'POST',
+			data: {action: "checkLogin"},
+			dataType: 'json',
+			success: (data) => {
+				if (data.status) {
 
+				} else {
+					window.location.href = 'login.jsp';
+				}
+			},
+			failure: (error) => {
+				console.log(error);
+			}
+		});
+	}
+
+	function displayProducts(){
+		$.ajax({
+			url:'./products',
+			type:'POST',
+			data:{
+				action:'display'
+			},
+			dataType:'json',
+			success:(data)=>{
+				let card='';
+				data.result.forEach(function(value)
+				{
+						card += '<div class="col-4">' +
+								'<div class="card">' +
+								'<div class="card-body">' +
+								'<div class="card-title">' + value.name + '</div>' +
+								'<div class="card-subtitle" div>RS.' + value.price + '</div><div class="card-text">' + value.description + '</div>' +
+								'</div>' +
+								'<a href="addToCart(' + value.id + ')" class="btn btn-success"> Add To Cart</a>' +
+								'</div>' +
+								'</div>'
+				})
+				document.getElementById("cardRow").innerHTML=card;
+			},
+			failure:(error)=>{
+				console.log(error);
+			}
+		});
+	}
+</script>
 </body>
 </html>
