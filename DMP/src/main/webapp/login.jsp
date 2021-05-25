@@ -93,7 +93,7 @@
                 dataType:'json',
                 success:(data)=>{
                     if(data.status){
-                        window.location.href='deliveryboy.jsp';
+                        window.location.href='deliveryBoyTask.jsp';
                     }else {
                         alert(data.result);
                     }
