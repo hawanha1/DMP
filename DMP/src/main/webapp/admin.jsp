@@ -122,10 +122,11 @@
 			$.ajax({
 				url:'./loginUser',
 				type:'POST',
-				data:{action:"count"},
+				data:{action:"displayUsers"},
 				dataType: 'json',
 				success:(data)=>{
-					document.getElementById("userCount").innerText=data.result;
+				    let length = data.result.length;
+				    document.getElementById("userCount").innerText=toString(length);
 				},
 				failure:(error)=>{
 					console.log(error);
@@ -137,10 +138,11 @@
 			$.ajax({
 				url:'./products',
 				type:'POST',
-				data:{action:"count"},
+				data:{action:"display"},
 				dataType: 'json',
 				success:(data)=>{
-					document.getElementById("productCount").innerText=data.result;
+                    let length = data.result.length;
+                    document.getElementById("productCount").innerText=toString(length);
 				},
 				failure:(error)=>{
 					console.log(error);
@@ -152,10 +154,11 @@
 			$.ajax({
 				url:'./deliveryBoy',
 				type:'POST',
-				data:{action:"count"},
+				data:{action:"display"},
 				dataType: 'json',
 				success:(data)=>{
-					document.getElementById("deliveryCount").innerText=data.result;
+                    let length = data.result.length;
+                    document.getElementById("deliveryCount").innerText=toString(length);
 				},
 				failure:(error)=>{
 					console.log(error);

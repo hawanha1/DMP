@@ -30,25 +30,10 @@ public class Product extends HttpServlet {
             } catch (SQLException throwables) {
                 throwables.printStackTrace();
             }
-        }else if(action.equals("count")){
-            try {
-                response.getWriter().println(count());
-            } catch (SQLException throwables) {
-                throwables.printStackTrace();
-            }
         }
 
     }
 
-    public String count() throws SQLException {
-        Connection connection=DriverManager.getConnection("jdbc:mysql://localhost:3306/dmp","root","");
-        String query="select Count (*) from product";
-        PreparedStatement statement=connection.prepareStatement(query);
-        ResultSet resultSet = statement.executeQuery();
-        resultSet.next();
-        int count = resultSet.getInt(1);
-        return "{\"result\":\""+count+"\"}";
-    }
 
     public  String deleteProduct(HttpServletRequest request) throws SQLException{
         Connection connection= DriverManager.getConnection("jdbc:mysql://localhost:3306/dmp","root","");
