@@ -39,6 +39,7 @@ public class User extends HttpServlet
 
 
 
+
     public String deleteUser(HttpServletRequest request) throws SQLException{
         Connection connection=DriverManager.getConnection("jdbc:mysql://localhost:3306/dmp","root","");
         int id = Integer.parseInt(request.getParameter("id"));
