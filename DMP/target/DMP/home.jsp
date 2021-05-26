@@ -5,11 +5,15 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Home</title>
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+	<script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 
   <script
     src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
@@ -55,31 +59,35 @@ google.maps.event.addDomListener(window, 'load', getPos);
 </script>
 </head>
 <body onload="start()">
-	<nav class="navbar navbar-inverse">
-  		<div class="container-fluid">
-    		<div class="navbar-header">
-      			<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-        			<span class="icon-bar"></span>
-        			<span class="icon-bar"></span>
-        			<span class="icon-bar"></span>
-      			</button>
-      			<a class="navbar-brand" href="home.jsp">WebSiteName</a>
-    		</div>
-    		<div class="collapse navbar-collapse" id="myNavbar">
-      			<ul class="nav navbar-nav">
-        			<li class="active"><a href="home.jsp">Home</a></li>
-        			<li><a href="about.jsp">About</a></li>
-        			<li><a href="services.jsp">Services</a></li>
-        			<li><a href="massageus.jsp">Massage Us</a></li>
-        			<li><a href="orders.jsp">Orders</a></li>
-      			</ul>
-      			<ul class="nav navbar-nav navbar-right">
-        			<li><a href="index.jsp" type="button"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-					<li><a href="login.jsp"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
-				</ul>
-    		</div>
-  		</div>
-	</nav>
+<nav class="navbar navbar-expand-md bg-dark navbar-dark">
+	<a class="navbar-brand" href="home.jsp">web side</a>
+	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+		<span class="navbar-toggler-icon"></span>
+	</button>
+	<div class="collapse navbar-collapse" id="collapsibleNavbar">
+		<ul class="navbar-nav mr-auto">
+			<li class="nav-item">
+				<a class="nav-link" href="home.jsp">Home</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" href="about.jsp">About</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" href="services.jsp">Services</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" href="contectUs.jsp">Contect US</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" href="order.jsp">Orders</a>
+			</li>
+		</ul>
+		<ul class="nav navbar-nav navbar-right">
+			<li><a href="index.jsp" type="button"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+			<li><a href="login.jsp"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+		</ul>
+	</div>
+</nav>
 	<div class="container">
 		<div class="row">
 			<div class="col-12">

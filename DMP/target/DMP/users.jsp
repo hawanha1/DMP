@@ -15,37 +15,44 @@
 
 </head>
 <body onload="start()">
-
-
-<nav class="navbar navbar-expand-lg navbar-inverse">
-	<div class="container-fluid">
-		<a class="navbar-brand" href="admin.jsp">Navbar</a>
-		<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-			<span class="navbar-toggler-icon"></span>
-		</button>
-		<div class="collapse navbar-collapse" id="navbarSupportedContent">
-			<ul class="navbar-nav me-auto mb-2 mb-lg-0">
-				<li class="nav-item">
-					<a class="nav-link active" aria-current="page" href="admin.jsp">Home</a>
-				</li>
-				<li class="nav-item">
-					<a class="nav-link" href="users.jsp" tabindex="-1" aria-disabled="true">User</a>
-				</li>
-				<li class="nav-item">
-					<a class="nav-link" href="deliveryboy.jsp" tabindex="-1" aria-disabled="true">Delivery Boy</a>
-				</li>
-				<li class="nav-item">
-					<a class="nav-link" href="products.jsp" tabindex="-1" aria-disabled="true">Products</a>
-				</li>
-				<ul class="nav navbar-nav navbar-right">
-					<li><a href="login.jsp"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
-				</ul>
-			</ul>
-		</div>
+<nav class="navbar navbar-expand-md bg-dark navbar-dark">
+	<a class="navbar-brand" href="admin.jsp">web side</a>
+	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+		<span class="navbar-toggler-icon"></span>
+	</button>
+	<div class="collapse navbar-collapse" id="collapsibleNavbar">
+		<ul class="navbar-nav mr-auto">
+			<li class="nav-item">
+				<a class="nav-link" href="admin.jsp">Home</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" href="users.jsp">users</a>
+			</li>
+			<li class="nav-item dropdown">
+				<a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+					Delivery Client
+				</a>
+				<div class="dropdown-menu">
+					<a class="dropdown-item" href="deliveryboy.jsp">Delivery Client List</a>
+					<a class="dropdown-item" href="addDeliveryBoy.jsp">Add Delivery Cient</a>
+				</div>
+			</li>
+			<li class="nav-item dropdown">
+				<a class="nav-link dropdown-toggle" href="#" id="productNavbardrop" data-toggle="dropdown">
+					products
+				</a>
+				<div class="dropdown-menu">
+					<a class="dropdown-item" href="products.jsp">Products List</a>
+					<a class="dropdown-item" href="addproduct.jsp">Add Product</a>
+				</div>
+			</li>
+		</ul>
+		<ul class="nav navbar-nav navbar-right">
+			<li><a href="index.jsp" type="button"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+			<li><a href="login.jsp"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+		</ul>
 	</div>
 </nav>
-
-
 <div class="container">
 		<div class="row">
 			<div class="col-12">
