@@ -42,6 +42,9 @@ import java.sql.*;
             String query="delete from login";
             PreparedStatement statement = connection.prepareStatement(query);
             statement.executeUpdate();
+            String query1="delete from cart";
+            statement=connection.prepareStatement(query1);
+            statement.executeUpdate();
             return "{\"status\":true}";
         }
 

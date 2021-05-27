@@ -96,7 +96,7 @@ google.maps.event.addDomListener(window, 'load', getPos);
 			</div>
 		</div>
 		<div class="row text-right" style="margin:5%">
-			<a class="btn btn-success" style="border-radius:50%;" href="cart.jsp"><i class="fa fa-shopping-cart" style="font-size:24px"></i></a>
+			<a class="btn btn-success" style="border-radius:50%;" href="cartDisplay.jsp"><i class="fa fa-shopping-cart" style="font-size:24px"></i></a>
 		</div>
 		<div class="row" id="cardRow" style="margin-bottom:5%">
 
@@ -115,6 +115,8 @@ google.maps.event.addDomListener(window, 'load', getPos);
 		checkLogin();
 		displayProducts();
 	}
+
+
 	function checkLogin() {
 		$.ajax({
 			url: './loginUser',
@@ -150,13 +152,34 @@ google.maps.event.addDomListener(window, 'load', getPos);
 								'<div class="card">' +
 								'<div class="card-body">' +
 								'<div class="card-title">' + value.name + '</div>' +
-								'<div class="card-subtitle" div>RS.' + value.price + '</div><div class="card-text">' + value.description + '</div>' +
+								'<div class="card-subtitle">RS.' + value.price + '</div><div class="card-text">' + value.description + '</div>' +
 								'</div>' +
-								'<a href="addToCart(' + value.id + ')" class="btn btn-success"> Add To Cart</a>' +
+								'</div>' +
+								'<a onclick="addToCart(' + value.id + ')" class="btn btn-success"> Add To Cart</a>' +
 								'</div>' +
 								'</div>'
 				})
 				document.getElementById("cardRow").innerHTML=card;
+			},
+			failure:(error)=>{
+				console.log(error);
+			}
+		});
+	}
+	function addToCart(id){
+		$.ajax({
+			url:'./cart',
+			type:'POST',
+			data:{
+				action:"addToCart",
+				productId:id
+			},
+			success:(data)=>{
+				if(data.status){
+					console.log(data.status);
+				}else{
+					console.log(data.result);
+				}
 			},
 			failure:(error)=>{
 				console.log(error);
